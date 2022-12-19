@@ -1,0 +1,11 @@
+.modal {
+  @apply fixed flex items-center justify-center w-full h-full left-0 top-0 bg-black bg-opacity-90 z-10 text-lg opacity-0 pointer-events-none transition-all;
+
+  &__container {
+    @apply relative p-10 mx-5 rounded-xl bg-[#1b1a1a] text-white;
+  }
+}
+
+.active {
+  @apply opacity-100 pointer-events-auto;
+}

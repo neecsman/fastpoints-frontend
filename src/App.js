@@ -1,24 +1,72 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router";
+import { ToastContainer } from "react-toastify";
+
+import {
+  Home,
+  Candidate,
+  Orders,
+  Login,
+  Registration,
+  Profile,
+  Recovery,
+} from "./Pages";
+import { CreateOrderContainer } from "./Containers";
+import { ProtectedRoute } from "./utils";
+import { Header, Footer } from "./Layouts";
+import { Up } from "./Components";
+import LocationState from "./Context/LocationContext";
+
+import "./App.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LocationState>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/recovery" element={<Recovery />} />
+
+          <Route
+            path="/orders"
+            element={
+              <ProtectedRoute>
+                <Orders />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/create-order"
+            element={
+              <ProtectedRoute>
+                <CreateOrderContainer />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/candidate"
+            element={
+              <ProtectedRoute>
+                <Candidate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+        <Footer />
+        <Up />
+        <ToastContainer progressClassName="progress" theme="dark" />
+      </div>
+    </LocationState>
   );
 }
 

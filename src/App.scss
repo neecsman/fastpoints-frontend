@@ -1,0 +1,10 @@
+@import "react-toastify/dist/ReactToastify.css";
+.App {
+  max-width: 1320px;
+  margin: 0 auto;
+  @apply px-5 xl:px-0;
+}
+
+.Toastify__progress-bar {
+  @apply bg-green #{!important};
+}

@@ -1,0 +1,33 @@
+.profile {
+  &_title {
+    @apply flex justify-between mb-8;
+    h1 {
+      @apply text-white text-5xl font-semibold;
+    }
+  }
+  &_container {
+    @apply flex justify-center items-center text-white;
+
+    form {
+      @apply flex flex-col p-12 bg-fullbalck rounded-3xl text-white font-semibold text-xl;
+      label {
+        @apply mb-1;
+      }
+      input {
+        @apply py-3 px-4 rounded-2xl outline-none text-black mb-8 text-sm w-full font-sans;
+      }
+      input[readonly] {
+        @apply bg-lightgray;
+      }
+
+      ion-icon {
+        width: 16px;
+        --ionicon-stroke-width: 24px;
+      }
+
+      button {
+        @apply mt-4;
+      }
+    }
+  }
+}

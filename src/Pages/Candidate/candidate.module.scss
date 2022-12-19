@@ -1,0 +1,49 @@
+.form {
+  @apply flex flex-col justify-center w-full m-auto md:w-[700px];
+
+  h1 {
+    @apply text-center text-white text-6xl my-14 font-bold;
+  }
+
+  h2 {
+    @apply mb-10;
+  }
+
+  label {
+    @apply text-white text-xl mb-4;
+  }
+
+  input,
+  textarea {
+    @apply p-4  rounded-xl mb-10 active:border-none outline-none;
+  }
+  p {
+    @apply text-red opacity-80 -mt-8 mb-3;
+  }
+  &_group {
+    @apply flex flex-wrap md:flex-nowrap justify-around;
+    & > div {
+      @apply flex flex-col w-full mx-3;
+    }
+  }
+}
+
+.tel {
+  input {
+    @apply w-full;
+  }
+  & > div > div {
+    @apply hidden;
+  }
+}
+
+.adress > div {
+  @apply relative;
+  ul {
+    @apply bg-black text-white border border-green flex flex-col items-start p-5 rounded-lg -mt-9 absolute w-full;
+
+    li {
+      @apply hover:bg-gray;
+    }
+  }
+}
