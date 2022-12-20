@@ -12,7 +12,8 @@
     tr {
       td,
       th {
-        @apply p-3 bg-white border border-lightgray max-w-[150px];
+        @apply p-3 bg-white border border-lightgray;
+        max-width: 150px;
       }
 
       td:first-child,

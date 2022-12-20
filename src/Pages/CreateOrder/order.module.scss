@@ -21,7 +21,11 @@
   }
 
   .form {
-    @apply flex flex-col justify-center w-full  md:w-[700px];
+    @apply flex flex-col justify-center w-full;
+
+    @media (min-width: 768px) {
+      width: 700px;
+    }
 
     &_group {
       @apply flex flex-wrap md:flex-nowrap justify-around;
@@ -102,7 +106,8 @@
       }
 
       div {
-        @apply flex items-center text-lg font-semibold border border-green rounded-md p-4 hover:bg-green hover:text-black transition-all active:scale-95 mx-4 md:mx-0 min-h-[40px];
+        @apply flex items-center text-lg font-semibold border border-green rounded-md p-4 hover:bg-green hover:text-black transition-all active:scale-95 mx-4 md:mx-0;
+        min-height: 40px;
       }
 
       input:checked + div {

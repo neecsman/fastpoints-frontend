@@ -16,7 +16,8 @@
 .docs,
 .contacts,
 .adress {
-  @apply flex flex-col max-w-[258px];
+  @apply flex flex-col;
+  max-width: 258px;
   h3 {
     @apply text-[1rem] mb-4 mt-5;
   }

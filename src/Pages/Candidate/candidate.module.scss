@@ -1,5 +1,9 @@
 .form {
-  @apply flex flex-col justify-center w-full m-auto md:w-[700px];
+  @apply flex flex-col justify-center w-full m-auto;
+
+  @media (min-width: 768px) {
+    width: 700px;
+  }
 
   h1 {
     @apply text-center text-white text-6xl my-14 font-bold;
