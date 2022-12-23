@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
   font-family: "Raleway", sans-serif;
-  @apply m-0 text-[14px] overflow-x-hidden bg-black;
+  @apply m-0 text-[14px] bg-black;
 }

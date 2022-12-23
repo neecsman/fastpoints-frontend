@@ -11,7 +11,7 @@ section {
 }
 
 .main {
-  @apply mt-20;
+  @apply mt-3 xl:mt-20;
   @media (min-width: 1440px) {
     margin-top: 10rem;
   }
@@ -25,6 +25,9 @@ section {
       h1 {
         @apply text-white leading-none;
         font-size: 3.5rem;
+        @media (max-width: 500px) {
+          font-size: 2rem;
+        }
       }
       p {
         @apply text-white opacity-60 py-14;

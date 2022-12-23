@@ -24,7 +24,7 @@ const SlideMenu = () => {
     navigate("/");
   };
 
-  document.body.style = `overflow: ${isMenuOpen && "hidden"}`;
+  document.body.style = `${isMenuOpen && "overflow: hidden; height: 100vh"};`;
 
   return (
     <nav

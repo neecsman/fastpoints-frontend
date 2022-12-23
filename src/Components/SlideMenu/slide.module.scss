@@ -3,7 +3,7 @@
 }
 
 .links {
-  @apply flex flex-col justify-center items-start h-full text-2xl mt-5 w-full px-6 font-semibold;
+  @apply flex flex-col justify-start items-start h-full text-2xl mt-5 w-full px-6 font-semibold;
 
   button {
     @apply flex items-center justify-between w-full mt-8 py-6;
