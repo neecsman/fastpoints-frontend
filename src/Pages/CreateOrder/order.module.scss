@@ -1,7 +1,7 @@
 .order {
   @apply flex flex-col items-center;
   h1 {
-    @apply text-white text-6xl my-14 font-bold;
+    @apply text-white text-2xl lg:text-6xl my-6 lg:my-14 font-semibold;
   }
 
   h2 {

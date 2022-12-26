@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { Button } from "../../../Components";
@@ -9,7 +9,7 @@ import style from "../Login/login.module.scss";
 
 const Recovery = () => {
   const [recovery] = useRecoveryMutation();
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,6 +19,9 @@ const Recovery = () => {
   const onSubmit = async (value) => {
     console.log(value);
     const id = toast.loading("Генерируем вам новый пароль 😎");
+    toast(
+      "В настоящий момент набляюдается задержка в работе почтовых сервисов. Писмьа могут приходить не с первого раза!"
+    );
     try {
       await recovery(value).unwrap();
       toast.update(id, {
@@ -27,6 +30,7 @@ const Recovery = () => {
         isLoading: false,
         autoClose: 5000,
       });
+      navigate("/login");
     } catch (error) {
       toast.update(id, {
         render: `${error.data.message} 😱`,

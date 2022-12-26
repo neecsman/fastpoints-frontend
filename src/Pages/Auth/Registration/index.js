@@ -161,6 +161,14 @@ const Registration = () => {
               Забыл пароль?
             </Link>
           </div>
+          <div className="text-white opacity-60 mt-6">
+            <p>
+              Нажимая кнопку "Зарегистрироваться", Вы соглашаетесь с{" "}
+              <a className="hover:underline" href="#">
+                политикой обработки персональных данных.
+              </a>
+            </p>
+          </div>
         </form>
       )}
     </div>

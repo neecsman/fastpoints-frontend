@@ -3,7 +3,8 @@ import { setCredentials, setLogout } from "../authSlice";
 
 const baseQuery = fetchBaseQuery({
   mode: "cors",
-  baseUrl: "http://1118897-cj08254.tw1.ru/api",
+  // baseUrl: "http://1118897-cj08254.tw1.ru/api",
+  baseUrl: "http://localhost:8080/api",
   credentials: "include",
   prepareHeaders: (headers) => {
     const token = localStorage.getItem("token");

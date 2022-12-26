@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 import PhoneInput from "react-phone-input-2";
 import { AddressSuggestions } from "react-dadata";
@@ -8,7 +9,11 @@ import { Button, CustomDatepicker } from "../../Components";
 import { useSendCandidateMailMutation } from "../../redux/API/mailApiSlice";
 import style from "./candidate.module.scss";
 const Candidate = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    foot: "Пешком",
+    end_time: "",
+    start_time: "",
+  });
 
   const [sendCandidateMail] = useSendCandidateMailMutation();
 
@@ -26,6 +31,7 @@ const Candidate = () => {
   } = useForm();
 
   const onSubmit = async () => {
+    // console.log(formData);
     const id = toast.loading("Отправляем ваши данные...");
     try {
       const data = await sendCandidateMail(formData).unwrap();
@@ -36,10 +42,10 @@ const Candidate = () => {
         isLoading: false,
         autoClose: 5000,
       });
-      reset();
+      // reset();
     } catch (error) {
       toast.update(id, {
-        render: "Упс, что-то пошло не так...",
+        render: error.data.message,
         type: "error",
         isLoading: false,
         autoClose: 5000,
@@ -98,7 +104,7 @@ const Candidate = () => {
         </div>
         <div>
           <label>Дата рождения:</label>
-          <Controller
+          {/* <Controller
             control={control}
             name="birthday"
             // rules={{ required: true }}
@@ -111,9 +117,18 @@ const Candidate = () => {
                 />
               </>
             )}
+          /> */}
+          <input
+            type="date"
+            value={formData.start_time}
+            onChange={(e) => handleOnChange(e)}
+            {...register("start_time", {
+              required: true,
+              validate: (value) => value !== "",
+            })}
           />
 
-          {/* {errors.birthday && <p>Возраст не соответствует требованиям</p>} */}
+          {errors.start_time && <p>Укажите дату рождения</p>}
         </div>
       </div>
 
@@ -145,7 +160,7 @@ const Candidate = () => {
         </div>
         <div>
           <label>Дата выдачи паспорта:</label>
-          <Controller
+          {/* <Controller
             control={control}
             name="pass_date"
             // rules={{ required: true }}
@@ -158,9 +173,19 @@ const Candidate = () => {
                 />
               </>
             )}
+          /> */}
+
+          <input
+            type="date"
+            value={formData.end_time}
+            onChange={(e) => handleOnChange(e)}
+            {...register("end_time", {
+              required: true,
+              validate: (value) => value !== "",
+            })}
           />
 
-          {/* {errors.pass_date && <p>Дата выдачи не соответствует возрасту</p>} */}
+          {errors.end_time && <p>Укажите дату выдачи паспорта</p>}
         </div>
       </div>
 
@@ -248,7 +273,6 @@ const Candidate = () => {
           <input
             {...register("email", {
               required: true,
-              validate: (value) => value !== "",
             })}
             type="email"
             placeholder="ivaninf@yandex.com"
@@ -257,11 +281,43 @@ const Candidate = () => {
           {errors.email && <p>Введите Вашу почту</p>}
         </div>
       </div>
-
+      <div className={style.form_selector}>
+        <label>Способ доставки:</label>
+        <div>
+          <label>
+            <input
+              {...register("foot")}
+              defaultChecked
+              type="checkbox"
+              name="foot"
+              value="Пешком"
+            />
+            <div>Пешком</div>
+          </label>
+          <label>
+            <input
+              {...register("cars", {})}
+              type="checkbox"
+              name="cars"
+              value="Легковой автомобиль"
+            />
+            <div>Легковой автомобиль</div>
+          </label>
+          <label>
+            <input
+              {...register("truck")}
+              type="checkbox"
+              name="truck"
+              value="Грузовой автомобиль"
+            />
+            <div>Грузовой автомобиль</div>
+          </label>
+        </div>
+      </div>
       <div className="flex justify-center">
         <Button primary>Отправить анкету</Button>
       </div>
-      <div className="mt-5 text-center text-gray">
+      <div className="mt-5 text-center text-white opacity-60">
         Нажимая кнопку "Отправить анкету", вы соглашаетесь с{" "}
         <a className="hover:text-green" href="/">
           политикой обработки персональных данных

@@ -2,14 +2,14 @@
   &_title {
     @apply flex justify-between mb-8;
     h1 {
-      @apply text-white text-5xl font-semibold;
+      @apply text-white text-2xl lg:text-5xl font-semibold;
     }
   }
   &_container {
     @apply flex justify-center items-center text-white;
 
     form {
-      @apply flex flex-col p-12 bg-fullbalck rounded-3xl text-white font-semibold text-xl;
+      @apply flex flex-col px-4 lg:px-12 py-12 bg-fullbalck rounded-3xl text-white font-semibold text-xl;
       label {
         @apply mb-1;
       }

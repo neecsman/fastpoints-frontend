@@ -1,3 +1,4 @@
+import { HashLink as Link } from "react-router-hash-link";
 import style from "./footer.module.scss";
 import logo from "../../img/logo.svg";
 const Footer = () => {
@@ -16,11 +17,21 @@ const Footer = () => {
         <h3>Навигация</h3>
         <nav>
           <ul>
-            <li>Преимущества</li>
-            <li>Области доставки</li>
-            <li>Виды доставки</li>
-            <li>Как работает?</li>
-            <li>Тариф</li>
+            <Link to="/#advantages">
+              <li>Преимущества</li>
+            </Link>
+            <Link to="/#region">
+              <li>Области доставки</li>
+            </Link>
+            <Link to="/#delivery">
+              <li>Виды доставки</li>
+            </Link>
+            <Link to="/#how">
+              <li>Как работает?</li>
+            </Link>
+            <Link to="/#tarifs">
+              <li>Тариф</li>
+            </Link>
           </ul>
         </nav>
       </div>

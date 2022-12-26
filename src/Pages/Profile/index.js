@@ -3,14 +3,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { setCredentials } from "../../redux/authSlice";
-import { useUpdateMutation } from "../../redux/API/authApiSlice";
+import {
+  useUpdateMutation,
+  useActivateMutation,
+} from "../../redux/API/authApiSlice";
 
 import { Button, Loading } from "../../Components";
 
 import style from "./profile.module.scss";
 
 const Profile = () => {
-  const [update, { isLoading, error }] = useUpdateMutation();
+  const [update, { isLoading }] = useUpdateMutation();
+  const [activate] = useActivateMutation();
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
@@ -51,6 +55,26 @@ const Profile = () => {
     }
   };
 
+  const resendConfirm = async () => {
+    const id = toast.loading("Повторная отправка письма...");
+    try {
+      await activate({ id: user.id });
+      toast.update(id, {
+        render: "Письмо успешно отправлено 👍",
+        type: "success",
+        isLoading: false,
+        autoClose: 5000,
+      });
+    } catch (error) {
+      toast.update(id, {
+        render: `${error.data.message} 😱`,
+        type: "error",
+        isLoading: false,
+        autoClose: 5000,
+      });
+    }
+  };
+
   return (
     <div className={style.profile}>
       <div className={style.profile_title}>
@@ -65,13 +89,24 @@ const Profile = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 {user.confirm ? (
-                  <p className="text-green mb-8 text-center">
-                    Аккаунт подтвержден
+                  <p className="text-green mb-8 text-start">
+                    Аккаунт: подтвержден
                   </p>
                 ) : (
-                  <p className="text-red mb-8 text-center">
-                    Аккаунт не подтвержден, провертье вашу почту!
-                  </p>
+                  <div className="flex flex-col items-start mb-8 text-center">
+                    <p className="text-red">Аккаунт: не подтвержден</p>
+                    <div className="flex mt-5">
+                      <span className="text-sm opacity-60 font-light">
+                        Письмо на почту отправлено
+                      </span>
+                      <div
+                        onClick={() => resendConfirm()}
+                        className="flex ml-2 text-green cursor-pointer hover:scale-105 active:scale-110 transition-all hover:rotate-180"
+                      >
+                        <ion-icon name="reload-outline"></ion-icon>
+                      </div>
+                    </div>
+                  </div>
                 )}
               </div>
               <div className="flex flex-col flex-wrap justify-center px-2">

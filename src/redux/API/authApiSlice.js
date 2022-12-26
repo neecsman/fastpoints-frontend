@@ -41,6 +41,14 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body,
       }),
     }),
+
+    activate: builder.mutation({
+      query: (body) => ({
+        url: "/user/activate",
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
@@ -52,4 +60,5 @@ export const {
   useLazyCheckAuthQuery,
   useUpdateMutation,
   useRecoveryMutation,
+  useActivateMutation,
 } = authApiSlice;
