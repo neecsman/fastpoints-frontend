@@ -93,7 +93,7 @@ const CreateOrderContainer = () => {
       navigate("/orders");
     } catch (error) {
       toast.update(id, {
-        render: "Упс, что-то пошло не так...",
+        render: error.data.message,
         type: "error",
         isLoading: false,
         autoClose: 5000,

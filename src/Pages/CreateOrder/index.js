@@ -309,7 +309,7 @@ const CreateOrder = ({
                 </>
               )}
             />
-            {errors["phone_from"] && <p>Введите номер телефона отправителя</p>}
+            {errors["phone_from"] && <p>Введите корректный номер телефона</p>}
           </div>
         </div>
         <div className={style.form_group}>
@@ -415,7 +415,7 @@ const CreateOrder = ({
                 </>
               )}
             />
-            {errors["phone_where"] && <p>Введите номер телефона получателя</p>}
+            {errors["phone_where"] && <p>Введите корректный номер телефона</p>}
           </div>
         </div>
         <div className={style.form_group}>
