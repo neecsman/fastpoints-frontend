@@ -164,7 +164,10 @@ const Registration = () => {
           <div className="text-white opacity-60 mt-6">
             <p>
               Нажимая кнопку "Зарегистрироваться", Вы соглашаетесь с{" "}
-              <a className="hover:underline" href="#">
+              <a
+                className="hover:underline"
+                href="http://1118897-cj08254.tw1.ru/docs/privacy.pdf"
+              >
                 политикой обработки персональных данных.
               </a>
             </p>

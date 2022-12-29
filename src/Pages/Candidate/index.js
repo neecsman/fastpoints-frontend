@@ -31,7 +31,6 @@ const Candidate = () => {
   } = useForm();
 
   const onSubmit = async () => {
-    // console.log(formData);
     const id = toast.loading("Отправляем ваши данные...");
     try {
       const data = await sendCandidateMail(formData).unwrap();
@@ -118,14 +117,37 @@ const Candidate = () => {
               </>
             )}
           /> */}
-          <input
+          {/* <input
             type="date"
+            max={new Date()}
             value={formData.start_time}
             onChange={(e) => handleOnChange(e)}
             {...register("start_time", {
               required: true,
               validate: (value) => value !== "",
             })}
+          /> */}
+
+          <Controller
+            control={control}
+            name="start_time"
+            rules={{ required: true }}
+            render={({ field: { value, onChange } }) => (
+              <>
+                <InputMask
+                  {...register("start_time", {
+                    required: true,
+                    validate: (value) => value !== "",
+                  })}
+                  name="start_time"
+                  mask="99.99.9999"
+                  maskChar={null}
+                  placeholder="01.01.1990"
+                >
+                  {(inputProps) => <input {...inputProps} type="text" />}
+                </InputMask>
+              </>
+            )}
           />
 
           {errors.start_time && <p>Укажите дату рождения</p>}
@@ -147,9 +169,9 @@ const Candidate = () => {
                     validate: (value) => value !== "",
                   })}
                   name="pasport_serial"
-                  mask="99 99 999999"
+                  mask="9999 999999"
                   maskChar={null}
-                  placeholder="00 00 000000"
+                  placeholder="0000 000000"
                 >
                   {(inputProps) => <input {...inputProps} type="text" />}
                 </InputMask>
@@ -175,14 +197,37 @@ const Candidate = () => {
             )}
           /> */}
 
-          <input
+          {/* <input
             type="date"
+            max={new Date()}
             value={formData.end_time}
             onChange={(e) => handleOnChange(e)}
             {...register("end_time", {
               required: true,
               validate: (value) => value !== "",
             })}
+          /> */}
+
+          <Controller
+            control={control}
+            name="end_time"
+            rules={{ required: true }}
+            render={({ field: { value, onChange } }) => (
+              <>
+                <InputMask
+                  {...register("end_time", {
+                    required: true,
+                    validate: (value) => value !== "",
+                  })}
+                  name="end_time"
+                  mask="99.99.9999"
+                  maskChar={null}
+                  placeholder="01.01.1990"
+                >
+                  {(inputProps) => <input {...inputProps} type="text" />}
+                </InputMask>
+              </>
+            )}
           />
 
           {errors.end_time && <p>Укажите дату выдачи паспорта</p>}
@@ -319,7 +364,10 @@ const Candidate = () => {
       </div>
       <div className="mt-5 text-center text-white opacity-60">
         Нажимая кнопку "Отправить анкету", вы соглашаетесь с{" "}
-        <a className="hover:text-green" href="/">
+        <a
+          className="hover:text-green"
+          href="http://1118897-cj08254.tw1.ru/docs/privacy.pdf"
+        >
           политикой обработки персональных данных
         </a>{" "}
       </div>

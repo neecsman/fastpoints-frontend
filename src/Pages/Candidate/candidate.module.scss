@@ -19,7 +19,7 @@
 
   input,
   textarea {
-    @apply p-4  rounded-xl mb-10 active:border-none outline-none;
+    @apply p-4  rounded-xl mb-10 active:border-none outline-none font-sans;
   }
   p {
     @apply text-red opacity-80 -mt-8 mb-3;
