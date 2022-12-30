@@ -39,20 +39,20 @@ const Footer = () => {
         <h3>Документы</h3>
         <nav>
           <ul>
-            <a href="http://1118897-cj08254.tw1.ru/docs/oferta.pdf">
+            <a href="https://fastpoints.ru/docs/oferta.pdf">
               {" "}
               <li>Оферта</li>
             </a>
-            <a href="http://1118897-cj08254.tw1.ru/docs/contract.pdf">
+            <a href="https://fastpoints.ru/docs/contract.pdf">
               <li>Договор оказания услуг</li>
             </a>
-            <a href="http://1118897-cj08254.tw1.ru/docs/secure.pdf">
+            <a href="https://fastpoints.ru/docs/secure.pdf">
               <li>Безопасная сделка</li>
             </a>
-            <a href="http://1118897-cj08254.tw1.ru/docs/rules.pdf">
+            <a href="https://fastpoints.ru/docs/rules.pdf">
               <li>Правила использования ПО «FastPoints»</li>
             </a>
-            <a href="http://1118897-cj08254.tw1.ru/docs/privacy.pdf">
+            <a href="https://fastpoints.ru/docs/privacy.pdf">
               <li>Политика обработки персональных данных</li>
             </a>
           </ul>

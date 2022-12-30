@@ -366,7 +366,7 @@ const Candidate = () => {
         Нажимая кнопку "Отправить анкету", вы соглашаетесь с{" "}
         <a
           className="hover:text-green"
-          href="http://1118897-cj08254.tw1.ru/docs/privacy.pdf"
+          href="https://fastpoints.ru/docs/privacy.pdf"
         >
           политикой обработки персональных данных
         </a>{" "}
