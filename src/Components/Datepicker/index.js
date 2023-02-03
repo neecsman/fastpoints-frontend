@@ -20,12 +20,12 @@ const CustomDatepicker = ({ setFormData, formData, start, end }) => {
     minDate: new Date("1950-01-01"),
     theme: {
       background:
-        "dark:bg-black dark:border dark:border-white dark:rounded-2xl",
+        "dark:bg-black dark:border dark:border-white dark:rounded-2xl bg-white border border-white rounded-2xl",
       todayBtn: "bg-green",
       clearBtn: "bg-green",
-      icons: "bg-black",
+      icons: "bg-green",
       text: "",
-      disabledText: "bg-gray",
+      disabledText: "bg-lightgray dark:bg-gray",
       input: "dark:text-black ",
       inputIcon: "hidden",
       selected: "bg-green",
